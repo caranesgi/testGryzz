@@ -1,0 +1,69 @@
+{% extends 'accounts/main.html' %} {% block content %}
+
+<br />
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Administrador:</h5>
+      <hr />
+      <a class="btn btn-outline-info btn-sm btn-block" href=""
+        >Actualizar usuario administrador</a
+      >
+      <a class="btn btn-outline-danger btn-sm btn-block" href=""
+        >Eliminar usuario administrador</a
+      >
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Informacion administrador empresa</h5>
+      <hr />
+      <p>Nombre: {{administrador.nombre}}</p>
+      <p>Correo: {{administrador.correo}}</p>
+    </div>
+  </div>
+</div>
+
+<br />
+<div class="row">
+  <div class="col">
+    <div class="card card-body">
+      <form method="get">
+        <button class="btn btn-primary" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <table class="table table-sm">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+          <th>Actualizar</th>
+          <th>Eliminar</th>
+        </tr>
+
+        {% for administrador in administradores %}
+        <tr>
+          <td>{{ administrador.nombre }}</td>
+          <td>{{ administrador.apellido }}</td>
+          <td>{{ administrador.correo }}</td>
+          <td>
+            <a class="btn btn-sm btn-info" href="">Actualizar</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-danger" href="">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

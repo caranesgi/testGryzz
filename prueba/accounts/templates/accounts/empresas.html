@@ -1,0 +1,43 @@
+{% extends 'accounts/main.html' %} {% block content %}
+
+<br />
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Empresas</h5>
+    </div>
+    <div class="card card-body">
+      <table class="table">
+        <tr>
+          <th>Admin</th>
+          <th>Nit</th>
+          <th>Nombre de la empresa</th>
+          <th>Nombre comercial</th>
+          <th>Dirección</th>
+          <th>Telefono</th>
+          <th>Correo</th>
+          <th>Sitio web</th>
+          <th>Pais</th>
+          <th>Ciudad</th>
+        </tr>
+
+        {% for i in empresas%}
+        <tr>
+          <td>{{i.admin}}</td>
+          <td>{{i.nit}}</td>
+          <td>{{i.nombreEmpresa}}</td>
+          <td>{{i.nombreComercialEmpresa}}</td>
+          <td>{{i.direccion}}</td>
+          <td>{{i.telefono}}</td>
+          <td>{{i.correo}}</td>
+          <td>{{i.sitioWeb}}</td>
+          <td>{{i.ciudad}}</td>
+          <td>{{i.pais}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

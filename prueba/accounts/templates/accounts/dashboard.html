@@ -1,0 +1,93 @@
+{% extends 'accounts/main.html' %} {% block content %}
+<br />
+<div class="row">
+  <div class="col-md-5">
+    <hr />
+    <div class="card card-body">
+      <a
+        class="btn btn-primary btn-sm btn-block"
+        href="{% url 'registrar_adminEmpresa' %}"
+        >Crear administrador de empresa</a
+      >
+      <!----  <table class="table table-sm">
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+        </tr>
+        {% for administrador in administradores %}
+        <tr>
+          <td>
+            <a
+              class="btn btn-sm btn-info"
+              href="{% url 'administradores' administrador.id %}"
+              >Ver</a
+            >
+          </td>
+          <td>
+            <a
+              class="btn btn-sm btn-danger"
+              href="{% url 'eliminar_administrador' administrador.id %}"
+              >Eliminar</a
+            >
+          </td>
+          <td>{{request.user}}</td>
+          <td>{{administrador.nombre}}</td>
+          <td>{{administrador.apellido}}</td>
+          <td>{{administrador.correo}}</td>
+        </tr>
+        {% endfor %}
+      </table> -->
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <hr />
+    <div class="card card-body">
+      <a
+        class="btn btn-primary btn-sm btn-block"
+        href="{% url 'crear_empresa' %}"
+        >Crear Empresa</a
+      >
+      <table class="table table-sm">
+        <tr>
+          <th>Nit</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Correo electronico</th>
+          <th>Ciudad</th>
+          <th>Actualizar</th>
+          <th>Eliminar</th>
+        </tr>
+
+        {% for empresa in empresas %}
+        <tr>
+          <td>{{empresa.nit}}</td>
+          <td>{{empresa.nombreEmpresa}}</td>
+          <td>{{empresa.direccion}}</td>
+          <td>{{empresa.correo}}</td>
+          <td>{{empresa.ciudad}}</td>
+          <td>
+            <a
+              class="btn btn-sm btn-info"
+              href="{% url 'actualizar_empresa' empresa.id %}"
+              >Actualizar</a
+            >
+          </td>
+          <td>
+            <a
+              class="btn btn-sm btn-danger"
+              href="{% url 'eliminar_empresa' empresa.id %}"
+              >Eliminar</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
